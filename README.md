@@ -22,11 +22,11 @@ Anaconda - Python 3.7
 
 ## Program:
 ```python
-# Developed By:
-# Register Number:
+# Developed By: Fawzi A
+# Register Number: 212220230017
 # i) Convert BGR and RGB to HSV and GRAY
 
-```python
+
 import cv2
 house_color_image = cv2.imread('house.jpg')
 cv2.imshow('original image',house_color_image)
@@ -64,7 +64,6 @@ cv2.destroyAllWindows()
 
 
 
-```
 ## Output:
 ### i) BGR and RGB to HSV and GRAY
 ![image](https://user-images.githubusercontent.com/75235022/162402631-05e3e620-4287-4baf-b1b9-cc42c7f800e9.png)
