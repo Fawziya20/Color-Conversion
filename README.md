@@ -26,8 +26,21 @@ Anaconda - Python 3.7
 # Register Number:
 # i) Convert BGR and RGB to HSV and GRAY
 
-
-
+```python
+import cv2
+house_color_image = cv2.imread('house.jpg')
+cv2.imshow('original image',house_color_image)
+hsv_image = cv2.cvtColor(house_color_image,cv2.COLOR_BGR2HSV)
+cv2.imshow('BGR2HSV',hsv_image)
+hsv_image1 = cv2.cvtColor(house_color_image,cv2.COLOR_RGB2HSV)
+cv2.imshow('RGB2HSV',hsv_image1)
+gray_image = cv2.cvtColor(house_color_image,cv2.COLOR_BGR2GRAY)
+cv2.imshow('BGR2GRAY',gray_image)
+gray_image1 = cv2.cvtColor(house_color_image,cv2.COLOR_RGB2GRAY)
+cv2.imshow('RGB2GRAY',gray_image1)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
 
 
 # ii)Convert HSV to RGB and BGR
@@ -53,25 +66,8 @@ Anaconda - Python 3.7
 
 ```
 ## Output:
-### i) BGR and RGB to HSV and GRAY
-<br>
-<br>
+![image](https://user-images.githubusercontent.com/75235022/162402631-05e3e620-4287-4baf-b1b9-cc42c7f800e9.png)
 
-### ii) HSV to RGB and BGR
-<br>
-<br>
-
-### iii) RGB and BGR to YCrCb
-<br>
-<br>
-
-### iv) Split and merge RGB Image
-<br>
-<br>
-
-### v) Split and merge HSV Image
-<br>
-<br>
 
 
 ## Result:
