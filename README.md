@@ -41,7 +41,7 @@ Output the image using cv2.imshow("OUTPUT", image)
 # (i) bgr and rgb to hsv and gray
 
 import cv2
-house_color_image = cv2.imread('house.jpg')
+house_color_image = cv2.imread('hp3.png')
 cv2.imshow('original image',house_color_image)
 hsv_image = cv2.cvtColor(house_color_image,cv2.COLOR_BGR2HSV)
 cv2.imshow('BGR2HSV',hsv_image)
@@ -63,7 +63,7 @@ cv2.destroyAllWindows()
 # (ii)Convert HSV to RGB and BGR
 
 import cv2
-img = cv2.imread("first.jpg")
+img = cv2.imread("hp1.jpg")
 img1= cv2.resize(img, (270,190))
 hsv = cv2.cvtColor(img1 , cv2.COLOR_BGR2HSV)
 cv2.imshow("INITIAL_HSV ", hsv)
@@ -83,7 +83,7 @@ cv2.destroyAllWindows()
 # (iii)convert RGB and BGR to YCrCb
 
 import cv2
-img = cv2.imread("lucifer.jpg")
+img = cv2.imread("hp3.png")
 img1= cv2.resize(img, (270,190))
 cv2.imshow("BGR_COLOR ", img1)
 img_ycrcb = cv2.cvtColor(img1 , cv2.COLOR_BGR2YCrCb)
@@ -103,7 +103,7 @@ cv2.destroyAllWindows()
 # (iv) Split and Merge RGB Image
 
 import cv2
-img = cv2.imread("book.jpg")
+img = cv2.imread("hp1.jpg")
 img1= cv2.resize(img, (270,190))
 cv2
 b,g,r = cv2.split(img1)
@@ -125,7 +125,7 @@ cv2.destroyAllWindows()
 # (v)Split and merge HSV Image
 
 import cv2
-img = cv2.imread("marvel.jpg")
+img = cv2.imread("hp3.png")
 img1= cv2.resize(img, (270,190))
 hsv = cv2.cvtColor(img1 , cv2.COLOR_BGR2HSV)
 cv2.imshow("INITIAL_HSV ", hsv)
@@ -143,6 +143,8 @@ cv2.destroyAllWindows()
 ## Output:
 ### i) BGR and RGB to HSV and GRAY
 <br>
+![image](https://user-images.githubusercontent.com/75235022/162606151-b114a492-0607-4b78-b172-51c46bc5600c.png)
+
 
 
 
@@ -150,6 +152,8 @@ cv2.destroyAllWindows()
 
 ### ii) HSV to RGB and BGR
 <br>
+![image](https://user-images.githubusercontent.com/75235022/162606209-3444bf6d-4aca-4054-b2b2-e6ab5be2cb2d.png)
+
 
 
 
@@ -157,6 +161,8 @@ cv2.destroyAllWindows()
 
 ### iii) RGB and BGR to YCrCb
 <br>
+![image](https://user-images.githubusercontent.com/75235022/162606301-fbbdf855-e03e-49fa-848a-4d62a6138992.png)
+
 
 
 
@@ -164,6 +170,8 @@ cv2.destroyAllWindows()
 
 ### iv) Split and merge RGB Image
 <br>
+![image](https://user-images.githubusercontent.com/75235022/162606357-bc0528eb-7884-49c3-8f1a-b25adf9585bd.png)
+
 
 
 
@@ -172,6 +180,8 @@ cv2.destroyAllWindows()
 
 ### v) Split and merge HSV Image
 <br>
+![image](https://user-images.githubusercontent.com/75235022/162606380-990e9f2c-94a8-438b-adf1-400408c176b3.png)
+
 
 
 
