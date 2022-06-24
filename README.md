@@ -1,202 +1,171 @@
-# Color Conversion
-## AIM
+### EX NO : 03
+### DATE  : 12.04.2022
+# <p align="center">Color Conversion</p>
 
+## AIM
 To perform the color conversion between RGB, BGR, HSV, and YCbCr color models.
+
 
 ## Software Required:
 Anaconda - Python 3.7
-## Algorithm:
 
-### Step1:
-Import cv2 library and upload the image or capture an image.
-<br>
+## ALGORITHM:
+### Step 1:
+Convert BGR and RGB to HSV and GRAY.
+### Step 2:
+Convert HSV to RGB and BGR.
+### Step 3:
+Convert RGB and BGR to YCrCb.
+### Step 4:
+Split and Merge RGB Image.
+### Step 5:
+Split and merge HSV Image.
 
-### Step2:
-Read the saved image using cv2.imread("filename.jpg").
-<br>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-### Step3:
-Convert the image into the given color transformation using cv2.cvtColor(image, cv2.BGR2YCrCb) 
-and similarly for other color formats. 
-<br>
-
-### Step4:
-Split and merge the image using cv2.split(hsv) and cv2.merge([h,s,v]) 
-<br>
-
-### Step5:
-Output the image using cv2.imshow("OUTPUT", image)
-
-<br>
 
 ## Program:
-
-### Developed By: FAWZIYA A
-### Register Number: 212220230017
-
-## i) Convert BGR and RGB to HSV and GRAY
-
 ```python
+# Developed By: Fawziya A
+# Register Number: 212220230017
 
-# (i) bgr and rgb to hsv and gray
-
+# i) Convert BGR and RGB to HSV and GRAY
 import cv2
-house_color_image = cv2.imread('hp3.png')
-cv2.imshow('original image',house_color_image)
-hsv_image = cv2.cvtColor(house_color_image,cv2.COLOR_BGR2HSV)
-cv2.imshow('BGR2HSV',hsv_image)
-hsv_image1 = cv2.cvtColor(house_color_image,cv2.COLOR_RGB2HSV)
-cv2.imshow('RGB2HSV',hsv_image1)
-gray_image = cv2.cvtColor(house_color_image,cv2.COLOR_BGR2GRAY)
-cv2.imshow('BGR2GRAY',gray_image)
-gray_image1 = cv2.cvtColor(house_color_image,cv2.COLOR_RGB2GRAY)
-cv2.imshow('RGB2GRAY',gray_image1)
+image=cv2.imread("rgb.jpg")
+cv2.imshow("ORIGINAL IMAGE",image)
+RGB_HSV=cv2.cvtColor(image,cv2.COLOR_RGB2HSV)
+cv2.imshow("RGB_HSV_IMAGE",RGB_HSV)
+RGB_GRAY=cv2.cvtColor(image,cv2.COLOR_RGB2GRAY)
+cv2.imshow("RGB_GRAY_IMAGE",RGB_GRAY)
+BGR_HSV=cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
+cv2.imshow("BGR_HSV_IMAGE",BGR_HSV)
+BGR_GRAY=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+cv2.imshow("BGR_GRAY_IMAGE",BGR_GRAY)
 cv2.waitKey(0)
-cv2.destroyAllWindows()
 
+# ii)Convert HSV to RGB and BGR
+hsv=cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
+cv2.imshow("HSV_IMAGE",hsv)
+HSV_RGB=cv2.cvtColor(hsv,cv2.COLOR_HSV2RGB)
+cv2.imshow("HSV_RGB_IMAGE",HSV_RGB)
+HSV_BGR=cv2.cvtColor(hsv,cv2.COLOR_HSV2BGR)
+cv2.imshow("HSV_BGR_IMAGE",HSV_BGR)
+cv2.waitKey(0)
+
+# iii)Convert RGB and BGR to YCrCb
+RGB_YCrCb=cv2.cvtColor(image,cv2.COLOR_RGB2YCrCb)
+cv2.imshow("RGB_YCrCb_IMAGE",RGB_YCrCb)
+BGR_YCrCb=cv2.cvtColor(image,cv2.COLOR_BGR2YCrCb)
+cv2.imshow("BGR_YCrCb_IMAGE",BGR_YCrCb)
+cv2.waitKey(0)
+
+# iv)Split and Merge RGB Image
+blue = image[:,:,0]
+cv2.imshow("blue",blue)
+green = image[:,:,1]
+cv2.imshow("green",green)
+red = image[:,:,2]
+cv2.imshow("red",red)
+merged=cv2.merge((blue,green,red))
+cv2.imshow("merged",merged)
+cv2.waitKey(0)
+
+# v) Split and merge HSV Image
+hsv=cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
+cv2.imshow("ORIGINAL HSV_IMAGE",hsv)
+h, s, v = cv2.split(hsv)
+cv2.imshow('h_plane', h)
+cv2.imshow('s_plane', s)
+cv2.imshow('v_plane', v)
+mergedhsv=cv2.merge((h,s,v))
+cv2.imshow('merged',mergedhsv)
+cv2.waitKey(0)
 ```
 
-## ii)Convert HSV to RGB and BGR
-
-```python
-
-# (ii)Convert HSV to RGB and BGR
-
-import cv2
-img = cv2.imread("hp1.jpg")
-img1= cv2.resize(img, (270,190))
-hsv = cv2.cvtColor(img1 , cv2.COLOR_BGR2HSV)
-cv2.imshow("INITIAL_HSV ", hsv)
-hsv_rgb = cv2.cvtColor(hsv, cv2.COLOR_HSV2RGB)
-cv2.imshow("HSV2RGB", hsv_rgb)
-hsv_bgr = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
-cv2.imshow("HSV_BGR", hsv_bgr)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
-```
-
-## iii)Convert RGB and BGR to YCrCb
-
-```python 
-
-# (iii)convert RGB and BGR to YCrCb
-
-import cv2
-img = cv2.imread("hp3.png")
-img1= cv2.resize(img, (270,190))
-cv2.imshow("BGR_COLOR ", img1)
-img_ycrcb = cv2.cvtColor(img1 , cv2.COLOR_BGR2YCrCb)
-cv2.imshow("BGR_YCRCB ", img_ycrcb)
-img_bgr = cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)
-cv2.imshow("RGB COLOR", img_bgr)
-img_bgr_y = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2YCrCb)
-cv2.imshow("RGB2YCrCb", img_bgr_y)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
-```
-
-## iv)Split and Merge RGB Image
-```python 
-
-# (iv) Split and Merge RGB Image
-
-import cv2
-img = cv2.imread("hp1.jpg")
-img1= cv2.resize(img, (270,190))
-cv2
-b,g,r = cv2.split(img1)
-cv2.imshow("RED MODEL", r)
-cv2.imshow("GREEN MODEL", g)
-cv2.imshow("BLUE MODEL ", b)
-merger = cv2.merge([b,g,r])
-cv2.imshow("MERGED IMAGE", merger )
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
-```
-
-## v) Split and merge HSV Image
-
-```python 
-
-
-# (v)Split and merge HSV Image
-
-import cv2
-img = cv2.imread("hp3.png")
-img1= cv2.resize(img, (270,190))
-hsv = cv2.cvtColor(img1 , cv2.COLOR_BGR2HSV)
-cv2.imshow("INITIAL_HSV ", hsv)
-h,s,v = cv2.split(hsv)
-cv2.imshow("RED MODEL", h)
-cv2.imshow("GREEN MODEL", s)
-cv2.imshow("BLUE MODEL ", v)
-merger = cv2.merge([h,s,v])
-cv2.imshow("MERGED IMAGE", merger )
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
-```
 
 ## Output:
+
 ### i) BGR and RGB to HSV and GRAY
-<br>
 
+![1](https://user-images.githubusercontent.com/75235488/162452961-3f5e5a98-ac49-4ea7-9e37-5e99dd42c2d8.png)
+![2](https://user-images.githubusercontent.com/75235488/162452979-74f196de-f63a-4123-b334-45872ec99b6c.png)
 
-![1](https://user-images.githubusercontent.com/75235022/162620799-d858e662-230a-4f9a-a901-c6590ed4e875.png)
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-
-
-
-<br>
 
 ### ii) HSV to RGB and BGR
-<br>
 
+![3](https://user-images.githubusercontent.com/75235488/162478800-7145382b-c874-4986-a210-9a5ea45435f5.png)
 
-
-![2](https://user-images.githubusercontent.com/75235022/162620815-9c92e6d1-6755-4ba6-9771-1561187b2751.png)
-
-
-
-<br>
+<br/>
+<br/>
+<br/>
 
 ### iii) RGB and BGR to YCrCb
-<br>
 
+![4](https://user-images.githubusercontent.com/75235488/162471198-fb2f8e6a-274e-4e63-9c5a-e412e82b593a.png)
 
-
-![3](https://user-images.githubusercontent.com/75235022/162620824-d08c528d-bc44-40ba-a0e7-66c9ed61ecfc.png)
-
-
-
-<br>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 ### iv) Split and merge RGB Image
-<br>
 
+![5](https://user-images.githubusercontent.com/75235488/162470914-98c896f3-a327-48d4-b4bb-74ed20ba0004.png)
 
+<br/>
+<br/>
+<br/>
 
-![4](https://user-images.githubusercontent.com/75235022/162620832-9648dc8e-e6cf-46e4-80f8-284c0cbf5c1b.png)
+![6](https://user-images.githubusercontent.com/75235488/162470938-d2c180f6-6905-4592-b218-e61f7c7c943d.png)
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-
-
-<br>
 
 ### v) Split and merge HSV Image
-<br>
 
-
-![5](https://user-images.githubusercontent.com/75235022/162620836-584c6943-133c-4b12-acf5-6596d2f66167.png)
-
-
-
-
-<br>
-
+![7](https://user-images.githubusercontent.com/75235488/162471239-615ddb3c-bbfe-4130-ba2b-b131982568e2.png)
+![8](https://user-images.githubusercontent.com/75235488/162471252-108d5f5d-2e0a-4bef-bea2-7993fd7eb6ed.png)
 
 
 ## Result:
